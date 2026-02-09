@@ -15,19 +15,31 @@ def calcTax():
   """
   data = request.get_json(silent=True)
 
-  if not data or "a" not in data or "b" not in data:
+  if not data or "a" not in data or "b" not in data or "c" not in data:
     return jsonify({"error1": "Income can not be blank"}), 400
   
 
   try:
     a = float(data["a"])
     b = float(data["b"])
+    c = float(data["c"])
 
-    if a < 0 or b < 0:
+    if c < 25000:
+      taxrate = 20/100
+    
+    elif c < 50000:
+      taxrate = 40/100
+    
+    else:
+      taxrate = 45/100
+
+    if a < 0 or b < 0 or c < 0:
       return jsonify({"error2": "Please provide positive income"}), 400
   
     if b < 1000:
+      if c < 25000
       return jsonify({"taxIncome": 20/100*a, "taxSavings": 0}), 200
+    
     
     return jsonify({"taxIncome": 20/100*a, "taxSavings": 15/100*(b-1000)}), 200
     
