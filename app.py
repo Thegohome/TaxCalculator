@@ -37,8 +37,8 @@ def calcTax():
       return jsonify({"error2": "Please provide positive income"}), 400
   
     if b < 1000:
-      if c < 25000
-      return jsonify({"taxIncome": 20/100*a, "taxSavings": 0}), 200
+      if c < 25000:
+        return jsonify({"taxIncome": 20/100*a, "taxSavings": 0}), 200
     
     
     return jsonify({"taxIncome": 20/100*a, "taxSavings": 15/100*(b-1000)}), 200
